@@ -1,0 +1,8 @@
+:root {
+	--primary: #fec868;
+	--bg-color: #272728;
+	--text-color: #dadada;
+	--secondary-bg-color: #1d1919;
+	--secondary-text-color: #fff;
+	--box-shadow: 0 2px 5px -1px rgba(255, 255, 255, 0.15), 0 0 1px rgba(255, 255, 255, 0.09);
+}

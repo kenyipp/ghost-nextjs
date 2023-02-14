@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "./site.scss";
+
+html,
+body {
+	font-family: "Noto Sans HK", sans-serif;
+	font-family: "Roboto", sans-serif;
+	height: 100%;
+	width: 100%;
+	background-color: var(--bg-color);
+}
