@@ -1,0 +1,33 @@
+# Knex
+knexfile
+Millis
+
+# Sql configs
+tinytext
+text
+mediumtext
+longtext
+
+# Amazon
+cloudwatchlogs
+
+# Winston
+logform
+
+# Fake.js
+birthdate
+reduxjs
+
+# puppeter
+domcontentloaded
+aarch64
+
+# Others
+Middlewares
+colorify
+colorfied
+luxon
+prefs
+newtabpage
+reportingpolicy
+autosize

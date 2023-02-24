@@ -20,7 +20,7 @@ export const Navbar = () => {
 					</Link>
 					{
 						navigation.length > 0 && (
-							<ul className="navbar-navigations">
+							<ul className="navbar-navigation">
 								{
 									navigation.map((page, index) => (
 										<li
@@ -55,6 +55,7 @@ export const Navbar = () => {
 							<a
 								href={`https://github.com/${githubUsername}`}
 								target="_blank"
+								rel="noreferrer"
 							>
 								<BsGithub />
 							</a>
@@ -66,6 +67,7 @@ export const Navbar = () => {
 								<a
 									href={`https://www.facebook.com/${appSetting.facebook}`}
 									target="_blank"
+									rel="noreferrer"
 								>
 									<BsFacebook />
 								</a>
@@ -78,6 +80,7 @@ export const Navbar = () => {
 								<a
 									href={`https://twitter.com/${appSetting.twitter}`}
 									target="_blank"
+									rel="noreferrer"
 								>
 									<BsTwitter />
 								</a>

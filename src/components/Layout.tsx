@@ -9,6 +9,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 	return (
 		<>
 			<Head>
+				{/* eslint-disable @next/next/no-css-tags */}
 				<link
 					rel="stylesheet"
 					type="text/css"
@@ -16,6 +17,7 @@ export const Layout = ({ children }: { children: ReactNode }) => {
 					disable={mode == Theme.Light}
 					href="/stylesheets/dark.css"
 				/>
+				{/* eslint-disable @next/next/no-css-tags */}
 				<link
 					rel="stylesheet"
 					type="text/css"

@@ -29,6 +29,6 @@ export const useAxiosClient = () => {
 }
 
 export const useNextClient = () => {
-	const domain = process.env.NODE_ENV === "production"? "" : "http://localhost:3000";
+	const domain = process.env.NODE_ENV === "production"? process.env.SERVER_DOMAIN : "http://localhost:3000";
 	return axios.create({ baseURL: `${domain}/api` });
 };
