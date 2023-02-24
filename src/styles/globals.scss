@@ -1,13 +1,91 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	h1 {
+		@apply font-medium;
+		@apply text-2xl;
+		@apply mb-4;
+		line-height: unset;
+	}
+	h2 {
+		@apply font-medium;
+		@apply text-xl;
+		line-height: unset;
+	}
+	h3 {
+		@apply font-medium;
+		@apply text-lg;
+		line-height: unset;
+	}
+	h4 {
+		@apply font-medium;
+		@apply text-base;
+		@apply mb-2;
+		line-height: unset;
+	}
+	h5 {
+		@apply font-medium;
+		@apply text-base;
+		line-height: unset;
+	}
+	h6 {
+		@apply font-medium;
+		@apply text-sm;
+		line-height: unset;
+	}
+	ul {
+		padding: 0 1.5rem;
+		@apply list-disc;
+		@apply mb-3;
+		& > li {
+			@apply mb-2;
+		}
+	}
+}
+
+@import "./article.scss";
+@import "./footer.scss";
 @import "./site.scss";
+@import "./navbar.scss";
+@import "./pagination.scss";
+@import "./relevant-articles.scss";
+@import "./variable.scss";
 
 html,
 body {
-	font-family: "Noto Sans HK", sans-serif;
 	font-family: "Roboto", sans-serif;
-	height: 100%;
+	font-size: 16px;
 	width: 100%;
+	height: 100%;
+	color: var(--text-color);
 	background-color: var(--bg-color);
+}
+
+hr {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 1px;
+	margin: 2.5em 0 3.5em;
+	padding: 0;
+	border: 0;
+	border-top: 1px solid var(--border-color);
+}
+
+.error-container {
+	height: calc(100vh - 100px - $navbar-height);
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.9rem;
+}
+
+#__next {
+	display: flex;
+	flex-direction: column;
+    min-height: 100vh;
 }

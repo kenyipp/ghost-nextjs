@@ -1,47 +1,25 @@
-.site-wrapper {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+@import "./variable.scss";
+
+.site-main {
+	margin-top: $navbar-height;
 }
 
 .site-header {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 300px;
-	background: var(--bg-color) no-repeat center center;
-	background-size: cover;
-	&::before {
-		position: absolute;
-		right: 0;
-		left: 0;
-		height: 100%;
-		content: "";
-		background: linear-gradient(54deg, rgba(45, 45, 45, 0.85) 34%, rgba(45, 45, 45, 0.85));
-	}
+	padding: 5vw 0 10px;
+	border-bottom: 1px solid var(--border-color);
+	width: 100%;
+	margin-bottom: 2rem;
 }
 
-.site-header-content {
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	text-align: center;
-	padding: 20px 120px;
-	border: 3px solid white;
-}
-
-.site-header-title {
-	color: white;
-	font-size: 3em;
-	margin: 0;
+.site-title {
+	z-index: 10;
+	margin-bottom: 0 0 1rem;
 	padding: 0;
-	position: relative;
+	font-size: 3rem;
 }
 
-.site-header-description {
+.site-description {
+	color: var(--secondary-text-color);
 	font-weight: 400;
-	color: white;
-	margin-bottom: 0.5em;
-	font-size: 0.8em;
+	font-size: 1rem;
 }

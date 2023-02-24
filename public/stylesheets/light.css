@@ -1,0 +1,13 @@
+:root {
+	/* --primary: #fec868;
+	--bg-color: #151515;
+	--text-color: #dadada;
+	--secondary-bg-color: #222;
+	--secondary-text-color: #fff; */
+	--box-shadow: 0 2px 5px -1px rgba(255, 255, 255, 0.15), 0 0 1px rgba(255, 255, 255, 0.09);
+	/* --font-family: -apple-system, Helvetica Neue, BlinkMacSystemFont, Microsoft Yahei, Roboto, Oxygen, Ubuntu, Cantarell,
+		Open Sans, sans-serif; */
+	--blockquote-font-family: -apple-system, Helvetica Neue, BlinkMacSystemFont, Microsoft Yahei, Roboto, Oxygen, Ubuntu,
+		Cantarell, Open Sans, sans-serif;
+	--code-font-family: HackJBMLigaturedCCG-Regular, Menlo, Consolas, Monaco, source-code-pro, Andale Mono, monospace;
+}

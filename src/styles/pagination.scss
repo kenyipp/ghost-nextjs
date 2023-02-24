@@ -1,0 +1,26 @@
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	& > a {
+		font-size: 0.8rem;
+		margin: 0 20px;
+		padding: 5px 10px;
+		cursor: pointer;
+		&.disabled {
+			cursor: not-allowed;
+			color: var(--disabled-text-color);
+		}
+	}
+}
+
+.pagination-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	&> li > span {
+		font-size: 0.8rem;
+		display: inline-block;
+		margin: 0 2px;
+	}
+}

@@ -8,7 +8,8 @@ export const ThemeContext = createContext({
 });
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-	const mode = getUserPreferredMode();
+	// const mode = getUserPreferredMode();
+	const mode = Theme.Dark;
 	const [theme, setTheme] = useState(mode);
 	return (
 		<ThemeContext.Provider

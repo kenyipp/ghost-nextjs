@@ -1,0 +1,97 @@
+@import "./variable.scss";
+
+.navbar {
+	height: $navbar-height;
+	background-color: var(--secondary-bg-color);
+	color: var(--secondary-text-color);
+	display: flex;
+	& > .inner {
+		display: flex;
+	}
+}
+
+.navbar-left {
+	display: flex;
+	align-items: center;
+}
+
+.navbar-center {
+	flex-grow: 1;
+}
+
+.navbar-right {
+	flex: 0 1 auto;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	align-items: center;
+	list-style: none;
+	& > li {
+		padding: 0;
+		margin: 0;
+		&:last-child > a {
+			margin-right: 0;
+		}
+		& > a {
+			cursor: pointer;
+			color: #bbb;
+			display: block;
+			padding: 6px;
+			margin-right: 8px;
+			font-size: 14px;
+			transition: all 0.3s ease-in-out;
+			&:hover {
+				color: white;
+			}
+		}
+	}
+}
+
+.navbar-logo {
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 12px 0;
+	margin-right: 18px;
+	color: var(--text-color);
+}
+
+.navbar-navigations {
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+	@apply list-none;
+	& > li {
+		padding: 0;
+		margin: 0;
+		& > a {
+			position: relative;
+			display: block;
+			padding: 15px 5px;
+			margin: 0 15px;
+			&::after {
+				position: absolute;
+				bottom: 8px;
+				content: "";
+				left: 0;
+				width: 0%;
+				height: 1px;
+				background-color: var(--primary);
+				transition: all 0.35s ease-in-out;
+			}
+			&:hover {
+				color: white;
+				&::after {
+					width: 100% !important;
+				}
+			}
+		}
+	}
+}
+
+.navbar-fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	z-index: 10000;
+}
