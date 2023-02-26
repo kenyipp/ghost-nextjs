@@ -2,6 +2,7 @@ import Head from "next/head";
 import _ from "lodash";
 import { ThemeProvider as MUIThemeProvider } from "@mui/material/styles";
 import { DefaultSeo } from "next-seo";
+import NextNProgress from "nextjs-progressbar";
 import { theme } from "@ghost/themes";
 import { seoConfig } from "@ghost/constants";
 import { useGhostClient } from "@ghost/hooks";
@@ -28,6 +29,7 @@ function App({ Component, pageProps, settings }: AppProps & AppSettingsProps) {
 				/>
 			</Head>
 			<DefaultSeo {...defaultSeoConfig} />
+			<NextNProgress color="#fbc308" />
 			<MUIThemeProvider theme={theme}>
 				<AppContext.Provider value={{ settings }}>
 					<ThemeProvider>
@@ -39,14 +41,12 @@ function App({ Component, pageProps, settings }: AppProps & AppSettingsProps) {
 			</MUIThemeProvider>
 		</>
 	);
-};
+}
 
-App.getInitialProps = async function () {
+App.getInitialProps = async () => {
 	const client = useGhostClient();
 	const settings = await client.settings.browse();
 	return { settings };
 };
 
 export default App;
-
-

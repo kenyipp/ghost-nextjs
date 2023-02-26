@@ -6,20 +6,20 @@ export const getSeoConfigsFromSetting = (settings: SettingsResponse): DefaultSeo
 		title,
 		description,
 		url,
-		og_title,
-		og_description
+		og_title: ogTitle,
+		og_description: ogDescription
 	} = settings;
 	const config: DefaultSeoProps = {
 		defaultTitle: `${title} - ${description}`,
 		titleTemplate: `%s - ${title}`,
-		description: description,
-		canonical: url,
+		description,
+		canonical: url
 	};
-	if (og_title && og_description) {
+	if (ogTitle && ogDescription) {
 		config.openGraph = {
-			url: url,
-			title: og_title,
-			description: og_description
+			url,
+			title: ogTitle,
+			description: ogDescription
 		};
 	}
 	return config;

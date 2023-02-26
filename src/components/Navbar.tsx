@@ -2,7 +2,9 @@ import { Theme } from "@ghost/constants";
 import { useAppConfig, useThemeMode } from "@ghost/hooks";
 import { Container } from "@mui/material";
 import Link from "next/link";
-import { BsSun, BsFillMoonFill, BsGithub, BsFacebook, BsTwitter } from "react-icons/bs";
+import {
+	BsSun, BsFillMoonFill, BsGithub, BsFacebook, BsTwitter
+} from "react-icons/bs";
 import { FaRss } from "react-icons/fa";
 
 export const Navbar = () => {
@@ -27,9 +29,9 @@ export const Navbar = () => {
 											key={index}
 											role="menu"
 										>
-											<a href={page.url}>
+											<Link href={page.url}>
 												{page.label}
-											</a>
+											</Link>
 										</li>
 									))
 								}
@@ -45,7 +47,7 @@ export const Navbar = () => {
 						false && (
 							<li>
 								<a onClick={() => toggleMode()}>
-									{mode == Theme.Dark ? <BsFillMoonFill /> : <BsSun />}
+									{mode === Theme.Dark ? <BsFillMoonFill /> : <BsSun />}
 								</a>
 							</li>
 						)

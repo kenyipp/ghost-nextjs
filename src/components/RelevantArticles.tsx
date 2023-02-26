@@ -1,11 +1,12 @@
 import moment from "moment";
-import { ArticlePreview } from "@ghost/components";
-import { Container, Grid } from "@mui/material";
-import { type RelevantPost } from "@ghost/types"
+import { ArticlePreview } from "@ghost/components/ArticlePreview";
+import { Grid } from "@mui/material";
+import { type RelevantPost } from "@ghost/types";
 import Link from "next/link";
 
-export const RelevantArticles = ({ tag, relevant, relevantCount, latest }: RelevantArticlesProps) => {
-
+export const RelevantArticles = ({
+	tag, relevant, relevantCount, latest
+}: RelevantArticlesProps) => {
 	if (!tag || relevantCount < 1) {
 		return (
 			<div className="read-next">
@@ -13,7 +14,7 @@ export const RelevantArticles = ({ tag, relevant, relevantCount, latest }: Relev
 					{
 						latest
 							.slice(0, 3)
-							.map(post => (
+							.map((post) => (
 								<Grid
 									key={post.id}
 									item
@@ -52,20 +53,18 @@ export const RelevantArticles = ({ tag, relevant, relevantCount, latest }: Relev
 						</h3>
 						<ul className="read-next-card-content">
 							{
-								relevant.map(post => {
-									return (
-										<li key={post.id}>
-											<Link href={`/${post.slug}`}>
-												<h6>{post.title}</h6>
-											</Link>
-											<div className="read-next-card-meta">
-												<time>{moment(post.published_at).format("DD MMM YYYY")}</time>
-												<span className="divider">•</span>
-												<span>{moment.duration(post.reading_time, "minutes").humanize()} Read</span>
-											</div>
-										</li>
-									);
-								})
+								relevant.map((post) => (
+									<li key={post.id}>
+										<Link href={`/${post.slug}`}>
+											<h6>{post.title}</h6>
+										</Link>
+										<div className="read-next-card-meta">
+											<time>{moment(post.published_at).format("DD MMM YYYY")}</time>
+											<span className="divider">•</span>
+											<span>{moment.duration(post.reading_time, "minutes").humanize()} Read</span>
+										</div>
+									</li>
+								))
 							}
 						</ul>
 						<footer className="read-next-card-footer">
@@ -78,7 +77,7 @@ export const RelevantArticles = ({ tag, relevant, relevantCount, latest }: Relev
 				{
 					relevant
 						.slice(0, 2)
-						.map(post => (
+						.map((post) => (
 							<Grid
 								key={post.id}
 								item
@@ -96,7 +95,7 @@ export const RelevantArticles = ({ tag, relevant, relevantCount, latest }: Relev
 				{
 					latest
 						.slice(0, Math.max(2 - relevant.length, 0))
-						.map(post => (
+						.map((post) => (
 							<Grid
 								key={post.id}
 								item

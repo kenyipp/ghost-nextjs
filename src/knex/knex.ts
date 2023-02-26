@@ -12,7 +12,7 @@ const config = {
 	pool: {
 		min: 2,
 		max: 5
-	},
+	}
 };
 
 export const knex = Knex(config);

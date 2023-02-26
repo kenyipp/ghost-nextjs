@@ -1,6 +1,5 @@
 .read-next {
 	width: 100%;
-	padding: 0 5vw;
 	.article-preview {
 		margin: 0;
 		padding-bottom: 0;
@@ -8,6 +7,7 @@
 	}
 	.article-preview-content {
 		min-height: unset;
+		margin-bottom: 3rem;
 	}
 }
 

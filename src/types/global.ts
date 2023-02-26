@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable */
 
 declare global {
 	namespace NodeJS {
@@ -9,7 +9,7 @@ declare global {
 	}
 }
 
-declare module 'react' {
+declare module "react" {
 	interface HTMLAttributes<T> extends DOMAttributes<T> {
 		disable?: boolean
 	}
@@ -22,4 +22,3 @@ declare module 'react' {
  *
  */
 export { };
-

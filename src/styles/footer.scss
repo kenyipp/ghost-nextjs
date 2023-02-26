@@ -1,3 +1,5 @@
+@import "./variable.scss";
+
 .site-footer {
 	font-size: 0.8rem;
 	padding: 20px 0 60px;
@@ -15,7 +17,7 @@
 	}
 }
 
-@media (max-width: 767px) {
+@media (max-width: $md-screen) {
 	.site-footer > .inner {
 		flex-direction: column;
 		align-items: center;

@@ -5,28 +5,26 @@ import { type PostOrPage } from "@tryghost/content-api";
 import { type GetServerSideProps } from "next";
 import { type RelevantPostResponse, type RelevantPost } from "@ghost/types";
 
-const ArticleDetail = ({ post, relevant }: ArticleDetailProps) => {
-	return (
-		<>
-			<Grid
-				container
-				maxWidth="md"
-				margin="2rem auto"
-			>
-				<Article post={post} />
-			</Grid>
-			<hr />
-			<Grid
-				container
-				maxWidth="lg"
-				margin="2rem auto"
-			>
-				<RelevantArticles {...relevant} />
-			</Grid>
-		</>
+const ArticleDetail = ({ post, relevant }: ArticleDetailProps) => (
+	<>
+		<Grid
+			container
+			maxWidth="md"
+			margin="2rem auto"
+		>
+			<Article post={post} />
+		</Grid>
+		<hr />
+		<Grid
+			container
+			maxWidth="lg"
+			margin="2rem auto"
+		>
+			<RelevantArticles {...relevant} />
+		</Grid>
+	</>
 
-	);
-};
+);
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const nextClient = useNextClient();
@@ -37,16 +35,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const post: PostOrPage = await axiosClient
 		.get("/posts", {
 			params: {
-				filter: "slug:" + slug,
+				filter: `slug:${slug}`,
 				include: ["tags", "authors"],
 				limit: 1
 			}
 		})
-		.then(response => response.data.posts[0]);
+		.then((response) => response.data.posts[0]);
 
 	const relevantResponse = await nextClient
 		.get<RelevantPostResponse>(`/post/slug/${slug}/relevant`)
-		.then(response => response.data.data);
+		.then((response) => response.data.data);
 
 	return {
 		props: {

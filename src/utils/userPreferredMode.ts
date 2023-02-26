@@ -1,4 +1,4 @@
-import { isServer } from "@ghost/utils";
+import { isServer } from "@ghost/utils/isServer";
 import { Theme } from "@ghost/constants";
 
 export const getUserPreferredMode = () => {

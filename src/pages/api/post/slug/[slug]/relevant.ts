@@ -4,8 +4,10 @@ import { useGhostClient } from "@ghost/hooks";
 import { type PostOrPage } from "@tryghost/content-api";
 import { type RelevantPostResponse } from "@ghost/types";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse<RelevantPostResponse>) {
-
+export default async function handler(
+	req: NextApiRequest,
+	res: NextApiResponse<RelevantPostResponse>
+) {
 	const { slug } = req.query;
 
 	if (req.method !== "GET") {
@@ -53,17 +55,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 				.clone()
 				.select<Post[]>("id")
 				.limit(3)
-				.then(rows => rows.map(post => post.id)),
+				.then((rows) => rows.map((post) => post.id)),
 			query
 				.first({ count: knex.raw("COUNT(*)") })
 				.clone()
-				.then(response => response?.count)
+				.then((response) => response?.count)
 		]);
 
 		if (ids.length > 0) {
 			relevant = await client.posts.browse({
 				filter: `id:[${ids.join(",")}]`,
-				include: ["tags"],
+				include: ["tags"]
 			});
 			relevantCount = count;
 		}
@@ -71,7 +73,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
 	const notInSlug = [
 		slug,
-		...relevant.map(post => post.slug)
+		...relevant.map((post) => post.slug)
 	];
 
 	latest = await client
@@ -79,7 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 		.browse({
 			filter: `slug:-[${notInSlug.join(",")}]`,
 			limit: 3,
-			include: ["tags"],
+			include: ["tags"]
 		});
 
 	return res.json({

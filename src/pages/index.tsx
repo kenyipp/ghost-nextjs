@@ -8,48 +8,46 @@ import { getGridSize } from "@ghost/utils";
 const Home = ({
 	posts,
 	pagination
-}: HomeProps) => {
-	return (
+}: HomeProps) => (
+	<Grid
+		container
+		maxWidth="lg"
+		margin="2rem auto"
+	>
+		{
+			posts.map((post, index) => {
+				const size = getGridSize(index);
+				return (
+					<Grid
+						key={index}
+						item
+						lg={size.lg}
+						md={size.md}
+						sm={size.sm}
+						xs={size.xs}
+					>
+						<ArticlePreview
+							post={post}
+							horizontal={index === 0}
+						/>
+					</Grid>
+				);
+			})
+		}
 		<Grid
-			container
-			maxWidth="lg"
-			margin="2rem auto"
+			item
+			xs={12}
 		>
-			{
-				posts.map((post, index) => {
-					const size = getGridSize(index);
-					return (
-						<Grid
-							key={index}
-							item
-							lg={size.lg}
-							md={size.md}
-							sm={size.sm}
-							xs={size.xs}
-						>
-							<ArticlePreview
-								post={post}
-								horizontal={index == 0}
-							/>
-						</Grid>
-					);
-				})
-			}
-			<Grid
-				item
-				xs={12}
-			>
-				<Pagination pagination={pagination} />
-			</Grid>
+			<Pagination pagination={pagination} />
 		</Grid>
-	);
-}
+	</Grid>
+);
 
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const client = useGhostClient();
-	const page = (typeof context.query.page === "string" && parseInt(context.query.page)) || 0;
+	const page = (typeof context.query.page === "string" && Number(context.query.page)) || 0;
 	const posts = await client.posts.browse({
 		limit: 9,
 		page,

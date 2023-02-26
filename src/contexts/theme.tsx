@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { getUserPreferredMode } from "@ghost/utils";
 import { Theme } from "@ghost/constants";
 
 export const ThemeContext = createContext({
@@ -16,11 +15,11 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 			value={{
 				mode: theme,
 				toggleMode: () => {
-					setTheme(theme == Theme.Dark ? Theme.Light : Theme.Dark);
+					setTheme(theme === Theme.Dark ? Theme.Light : Theme.Dark);
 				}
 			}}
 		>
 			{children}
 		</ThemeContext.Provider>
-	)
+	);
 };

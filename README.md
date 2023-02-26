@@ -1,10 +1,10 @@
 # Ghost NextJs
 
-<img 
-	src="./doc/demo.png" 
-	width="500" 
-	style="display: block; margin: 0 auto;"
-/>
+<p align="center">
+	<a href="https://blog.kenyip.cc" target="_blank">
+		<img src="./doc/demo.png" width="500" />
+	</a>
+</p>
 
 This repository contains a blog created using the Next.js framework and the Ghost blogging platform. 
 

@@ -1,3 +1,5 @@
+@import "./variable.scss";
+
 // Article
 $article-padding: 5vw;
 $article-preview-padding: 12px;
@@ -101,7 +103,7 @@ $article-preview-padding: 12px;
 	flex-direction: column;
 	margin: 2rem (-$article-padding);
 	border-radius: 3px;
-	@media (max-width: 767px) {
+	@media (max-width: $md-screen) {
 		border-radius: 0px;
 	}
 	img {
@@ -161,7 +163,7 @@ $article-preview-padding: 12px;
 		}
 	}
 
-	@media (max-width: 767px) {
+	@media (max-width: $md-screen) {
 		display: block;
 		.article-preview-image {
 			margin: 0;
@@ -179,7 +181,7 @@ $article-preview-padding: 12px;
 
 		object-fit: cover;
 
-		@media (max-width: 767px) {
+		@media (max-width: $md-screen) {
 			border-radius: 0px;
 		}
 	}
@@ -188,7 +190,9 @@ $article-preview-padding: 12px;
 .article-preview-content {
 	flex: 1 1 361px;
 	min-height: 24rem;
-	@media (max-width: 767px) {
+	@media (max-width: $md-screen) {
+		padding-bottom: 1rem;
+		min-height: unset;
 	}
 }
 

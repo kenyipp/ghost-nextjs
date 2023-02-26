@@ -13,7 +13,7 @@ export const Pagination = ({ pagination }: { pagination: PaginationProps }) => {
 				className={classnames("pagination-previous", pagination.prev == null && "disabled")}
 				onClick={() => {
 					if (pagination.prev) {
-						push({ query: { ...query, page: pagination.prev } })
+						push({ query: { ...query, page: pagination.prev } });
 					}
 				}}
 			>
@@ -30,12 +30,12 @@ export const Pagination = ({ pagination }: { pagination: PaginationProps }) => {
 				className={classnames("pagination-next", pagination.next == null && "disabled")}
 				onClick={() => {
 					if (pagination.next) {
-						push({ query: { ...query, page: pagination.next } })
+						push({ query: { ...query, page: pagination.next } });
 					}
 				}}
 			>
 				Next
 			</a>
 		</nav>
-	)
+	);
 };

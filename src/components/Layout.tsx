@@ -1,36 +1,13 @@
-import Head from "next/head";
-import { Theme } from "@ghost/constants";
-import { Navbar, Footer } from "@ghost/components";
-import { useThemeMode } from "@ghost/hooks";
+import { Navbar } from "@ghost/components/Navbar";
+import { Footer } from "@ghost/components/Footer";
 import { ReactNode } from "react";
 
-export const Layout = ({ children }: { children: ReactNode }) => {
-	const { mode } = useThemeMode();
-	return (
-		<>
-			<Head>
-				{/* eslint-disable @next/next/no-css-tags */}
-				<link
-					rel="stylesheet"
-					type="text/css"
-					media={mode == Theme.Dark ? "all" : "not all"}
-					disable={mode == Theme.Light}
-					href="/stylesheets/dark.css"
-				/>
-				{/* eslint-disable @next/next/no-css-tags */}
-				<link
-					rel="stylesheet"
-					type="text/css"
-					href="/stylesheets/light.css"
-					media={mode == Theme.Light ? "all" : "not all"}
-					disable={mode == Theme.Dark}
-				/>
-			</Head>
-			<Navbar />
-			<main className="site-main">
-				{children}
-			</main>
-			<Footer />
-		</>
-	)
-};
+export const Layout = ({ children }: { children: ReactNode }) => (
+	<>
+		<Navbar />
+		<main className="site-main">
+			{children}
+		</main>
+		<Footer />
+	</>
+);
