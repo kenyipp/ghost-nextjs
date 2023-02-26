@@ -37,7 +37,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const post: PostOrPage = await axiosClient
 		.get("/posts", {
 			params: {
-				slug,
+				filter: "slug:" + slug,
 				include: ["tags", "authors"],
 				limit: 1
 			}

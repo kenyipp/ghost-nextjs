@@ -1,4 +1,11 @@
 # Ghost NextJs
+
+<img 
+	src="./doc/demo.png" 
+	width="500" 
+	style="display: block; margin: 0 auto;"
+/>
+
 This repository contains a blog created using the Next.js framework and the Ghost blogging platform. 
 
 While Ghost offers an excellent content management system and a highly customizable frontend view, this project uses Ghost's APIs instead of the [Handlebars](https://ghost.org/docs/themes/#handlebars) templating language to customize the view. This approach eliminates the need to learn Handlebars and allows for a more streamlined development process. 
@@ -38,6 +45,12 @@ Start production server:
 yarn build
 yarn start
 ```
+
+## Todo list
+ - [ ] Improve the SEO by optimizing meta tags, adding structured data, and improving the site's load speed
+ - [ ] Refactor the code to create better APIs that are more intuitive and efficient
+ - [ ] Write comprehensive test cases that cover all aspects of the application, including edge cases
+ - [ ] Create code coverage reports to ensure that all parts of the code are being tested adequately and identify areas that need improvement
 
 ## Contributing
 Please review the existing issues in this repository for areas that require improvement.

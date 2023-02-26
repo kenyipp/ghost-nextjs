@@ -22,23 +22,25 @@
 	h4 {
 		@apply font-medium;
 		@apply text-base;
-		@apply mb-2;
+		@apply mb-4;
 		line-height: unset;
 	}
 	h5 {
 		@apply font-medium;
 		@apply text-base;
+		@apply mb-4;
 		line-height: unset;
 	}
 	h6 {
 		@apply font-medium;
 		@apply text-sm;
+		@apply mb-3;
 		line-height: unset;
 	}
 	ul {
 		padding: 0 1.5rem;
 		@apply list-disc;
-		@apply mb-3;
+		@apply mb-6;
 		& > li {
 			@apply mb-2;
 		}
