@@ -1,20 +1,18 @@
 import { knex } from "@ghost/knex";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { useGhostClient } from "@ghost/hooks";
 import { type PostOrPage } from "@tryghost/content-api";
 import { type RelevantPostResponse } from "@ghost/types";
+import { getPosts } from "@ghost/utils/getPosts";
 
 export default async function handler(
 	req: NextApiRequest,
 	res: NextApiResponse<RelevantPostResponse>
 ) {
-	const { slug } = req.query;
+	const slug = req.query.slug as string;
 
 	if (req.method !== "GET") {
 		return res.status(405).json({ data: null } as any);
 	}
-
-	const client = useGhostClient();
 
 	const tag = await knex
 		.first<Tag>({
@@ -63,25 +61,24 @@ export default async function handler(
 		]);
 
 		if (ids.length > 0) {
-			relevant = await client.posts.browse({
-				filter: `id:[${ids.join(",")}]`,
-				include: ["tags"]
-			});
+			relevant = await getPosts({ ids })
+				.then((posts) => posts.sort((a, b) => ids.indexOf(b.id) - ids.indexOf(a.id)));
 			relevantCount = count;
 		}
 	}
 
-	const notInSlug = [
-		slug,
-		...relevant.map((post) => post.slug)
-	];
+	const notInSlug: string[] = [slug, ...relevant.map((post) => post.slug)];
 
-	latest = await client
-		.posts
-		.browse({
-			filter: `slug:-[${notInSlug.join(",")}]`,
-			limit: 3,
-			include: ["tags"]
+	latest = await knex
+		.select("id")
+		.from("posts")
+		.whereNotIn("slug", notInSlug)
+		.limit(3)
+		.orderBy("created_at", "desc")
+		.then(async (rows) => {
+			const ids = rows.map((item) => item.id);
+			const posts = await getPosts({ ids });
+			return posts.sort((a, b) => ids.indexOf(b.id) - ids.indexOf(a.id));
 		});
 
 	return res.json({

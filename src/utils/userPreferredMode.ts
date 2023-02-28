@@ -9,7 +9,6 @@ export const getUserPreferredMode = () => {
 		const prefersDarkMode = window.matchMedia("(prefers-color-scheme: dark)");
 		return prefersDarkMode ? Theme.Dark : Theme.Light;
 	} catch (error) {
-		console.error(error);
 		return Theme.Dark;
 	}
 };
