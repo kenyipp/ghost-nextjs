@@ -72,6 +72,8 @@ export default async function handler(
 	latest = await knex
 		.select("id")
 		.from("posts")
+		.whereNot("type", "page")
+		.where("status", "published")
 		.whereNotIn("slug", notInSlug)
 		.limit(3)
 		.orderBy("created_at", "desc")
