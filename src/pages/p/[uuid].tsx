@@ -16,9 +16,9 @@ const ArticlePreview = ({ post }: PreviewArticleProps) => (
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 	const nextClient = useNextClient();
-	const id = context.params?.id || "" as string;
+	const uuid = context.params?.uuid || "" as string;
 	const post = await nextClient
-		.get<{ data: PostOrPage }>(`/post/${id}`)
+		.get<{ data: PostOrPage }>(`/post/uuid/${uuid}`)
 		.then((response) => response.data.data);
 	return { props: { post } };
 };
